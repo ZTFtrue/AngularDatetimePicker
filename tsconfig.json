@@ -14,7 +14,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "angular-datetime-picker": [
+        "dist/angular-datetime-picker/angular-datetime-picker",
+        "dist/angular-datetime-picker"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

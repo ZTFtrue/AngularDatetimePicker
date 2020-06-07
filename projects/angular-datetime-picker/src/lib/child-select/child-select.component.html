@@ -1,0 +1,11 @@
+<div class="select">
+  <span></span>
+  <span class="selected">
+    {{_value}} {{name}}
+  </span>
+  <div class="select-view" #selectView>
+    <span class="select-item" *ngFor="let item of data" [ngClass]="{'selected-current':item===_value}" (click)="select(item)">
+      {{item}}
+    </span>
+  </div>
+</div>

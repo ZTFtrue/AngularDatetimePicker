@@ -1,0 +1,15 @@
+.date-view{
+  display: flex;
+  border: solid 1px gray;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-items: flex-start;
+  width: fit-content;
+}
+
+.date-parent-view{
+  position: absolute;
+  z-index: 2;
+}

@@ -1,0 +1,18 @@
+<button (click)="showSelectView=!showSelectView"><input [(ngModel)]="_value"/></button>
+<div class="date-parent-view" *ngIf="showSelectView">
+  <div class="date-view">
+    <app-child-select (eventSelected)="selectedYear($event)" [(value)]="selectYear" [data]="dataYear" [showIndex]="yearIndex"
+      *ngIf="type==='date'||type==='datetime'" name="年"></app-child-select>
+    <app-child-select (eventSelected)="selectedMonth($event)" [(value)]="selectMonth" [data]="dataMonth" [showIndex]="monthIndex"
+      *ngIf="type==='date'||type==='datetime'" name="月"></app-child-select>
+    <app-child-select (eventSelected)="selectedDay($event)" [(value)]="selectDay" [data]="dataDay" [showIndex]="dayIndex"
+      *ngIf="type==='date'||type==='datetime'" name="日"></app-child-select>
+    <app-child-select (eventSelected)="selectedHour($event)" [(value)]="selectHour" [data]="dataHour" [showIndex]="hourIndex"
+      *ngIf="type==='time'||type==='datetime'" name="时"></app-child-select>
+    <app-child-select (eventSelected)="selectedMin($event)" [(value)]="selectMin" [data]="dataMin" [showIndex]="minIndex"
+      *ngIf="type==='time'||type==='datetime'" name="分"></app-child-select>
+    <app-child-select (eventSelected)="selectedSec($event)" [(value)]="selectSec" [data]="dataSec" [showIndex]="secIndex"
+      *ngIf="type==='time'||type==='datetime'" name="秒"></app-child-select>
+  </div>
+  <button (click)="ok()">Ok</button>
+</div>
