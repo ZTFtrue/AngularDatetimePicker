@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, Self, Optional } from '@angular/core';
+import { Component, OnInit, Input, Output, Self, Optional, EventEmitter } from '@angular/core';
 import { NgControl } from '@angular/forms';
 
 @Component({
@@ -77,6 +77,7 @@ export class AngularDatetimePickerComponent implements OnInit {
 
   showSelectView = false;
 
+  @Output() readonly valueChange: EventEmitter<any> = new EventEmitter<any>();
 
 
   constructor(@Self() @Optional() public ngControl: NgControl) {
@@ -257,8 +258,7 @@ export class AngularDatetimePickerComponent implements OnInit {
       default:
         break;
     }
-
-    // this.ngControl.value = this._value;
+    this.valueChange.emit(this._value);
     this.showSelectView = false;
   }
 }
