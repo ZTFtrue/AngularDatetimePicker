@@ -43,11 +43,9 @@ export class ChildSelectComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    console.log(this._showIndex);
   }
 
   ngAfterViewInit(): void {
-    console.log(this._showIndex);
     this.selectView.nativeElement.scrollTop = this._showIndex * 32;
   }
 

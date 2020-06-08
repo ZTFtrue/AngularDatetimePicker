@@ -1,12 +1,19 @@
-import { Component, OnInit, Input, Output, Self, Optional, EventEmitter } from '@angular/core';
-import { NgControl } from '@angular/forms';
+import { Component, OnInit, Input, Output, Self, Optional, EventEmitter, forwardRef } from '@angular/core';
+import { NgControl, FormControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'lib-angular-datetime-picker',
   templateUrl: './angular-datetime-picker.component.html',
-  styleUrls: ['./angular-datetime-picker.component.css']
+  styleUrls: ['./angular-datetime-picker.component.css'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => AngularDatetimePickerComponent),
+      multi: true
+    }
+  ],
 })
-export class AngularDatetimePickerComponent implements OnInit {
+export class AngularDatetimePickerComponent implements OnInit, ControlValueAccessor {
 
 
   dataYear: number[] = [];
@@ -31,10 +38,10 @@ export class AngularDatetimePickerComponent implements OnInit {
   selectSec: number;
 
   /**
- * date
- * time
- * datetime
- */
+   * date
+   * time
+   * datetime
+   */
   @Input() type: string;
 
   @Input() maxYear: number;
@@ -71,7 +78,6 @@ export class AngularDatetimePickerComponent implements OnInit {
       this._value = selected;
     }
   }
-
   // tslint:disable-next-line: variable-name
   _value: any;
 
@@ -80,6 +86,11 @@ export class AngularDatetimePickerComponent implements OnInit {
   @Output() readonly valueChange: EventEmitter<any> = new EventEmitter<any>();
 
 
+  // tslint:disable-next-line: variable-name
+  _onChange: (value: any) => void = () => { };
+  // tslint:disable-next-line: variable-name
+  _onTouched: (value: any) => void = () => { };
+
   constructor(@Self() @Optional() public ngControl: NgControl) {
     if (this.ngControl) {
       // Note: we provide the value accessor through here, instead of
@@ -87,7 +98,22 @@ export class AngularDatetimePickerComponent implements OnInit {
       // ngControl.valueAccessor = this;
     }
   }
+
+  writeValue(obj: any): void {
+    this.value = obj;
+  }
+  registerOnChange(fn: any): void {
+    this._onChange = fn;
+  }
+  registerOnTouched(fn: any): void {
+    this._onTouched = fn;
+  }
+  setDisabledState?(isDisabled: boolean): void {
+  }
+
+
   ngOnInit(): void {
+    console.log(this._value);
     let date: Date;
     if (this._value) {
       date = new Date(this._value);
@@ -142,7 +168,6 @@ export class AngularDatetimePickerComponent implements OnInit {
       default:
         break;
     }
-    console.log(this.yearIndex)
   }
   selectedYear(data: number) {
     setTimeout(e => {
@@ -258,7 +283,13 @@ export class AngularDatetimePickerComponent implements OnInit {
       default:
         break;
     }
+    this._value = this._value;
     this.valueChange.emit(this._value);
+    this.writeValue(this._value);
+    this.showSelectView = false;
+  }
+  cancel() {
     this.showSelectView = false;
   }
 }
+
