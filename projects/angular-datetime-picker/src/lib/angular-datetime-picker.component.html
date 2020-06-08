@@ -1,4 +1,4 @@
-<button (click)="showSelectView=!showSelectView"><input [(ngModel)]="_value" /></button>
+<button (click)="showSelectView=!showSelectView"><input [(ngModel)]="_value" readonly="readonly"/></button>
 <div class="date-parent-view" *ngIf="showSelectView">
   <div class="date-view">
     <lib-app-child-select (eventSelected)="selectedYear($event)" [(value)]="selectYear" [data]="dataYear"
