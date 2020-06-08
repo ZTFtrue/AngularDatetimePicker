@@ -13,7 +13,7 @@ npm i @ztftrue/angular-datetime-picker
 in your ```.module.ts```
 
 ```ts
-import { AngularDatetimePickerModule } from 'angular-datetime-picker';
+import { AngularDatetimePickerModule } from '@ztftrue/angular-datetime-picker';
 
  imports: [
     AngularDatetimePickerModule
