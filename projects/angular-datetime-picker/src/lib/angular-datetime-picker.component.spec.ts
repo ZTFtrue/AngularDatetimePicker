@@ -55,7 +55,6 @@ describe('AngularDatetimePickerComponent', () => {
     component.selectedMonth(2);
     component.selectYear = 2020;
     component.selectedYear(2020);
-    console.log(component.dataDay);
     expect(component.dataDay.length === 29).toBeTrue();
   });
 });

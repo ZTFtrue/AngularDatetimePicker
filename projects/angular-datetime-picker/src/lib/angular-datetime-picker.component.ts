@@ -113,7 +113,6 @@ export class AngularDatetimePickerComponent implements OnInit, ControlValueAcces
 
 
   ngOnInit(): void {
-    console.log(this._value);
     let date: Date;
     if (this._value) {
       date = new Date(this._value);
@@ -170,10 +169,6 @@ export class AngularDatetimePickerComponent implements OnInit, ControlValueAcces
     }
   }
   selectedYear(data: number) {
-    setTimeout(e => {
-      console.log(this.selectYear);
-      console.log(this.yearIndex);
-    }, 1000);
     this.fullDay(this.selectDay, this.selectMonth, data);
   }
   selectedMonth(data: number) {
