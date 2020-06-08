@@ -8,13 +8,7 @@ import { NgControl } from '@angular/forms';
 })
 export class AngularDatetimePickerComponent implements OnInit {
 
-  /**
-   * date
-   * time
-   * datetime
-   */
-  @Input() type: string;
-  @Output() datetime: number;
+
   dataYear: number[] = [];
   dataMonth: number[] = [];
   dataDay: number[] = [];
@@ -29,12 +23,19 @@ export class AngularDatetimePickerComponent implements OnInit {
 
   dateMonthDays: number[] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-  @Input() selectYear: number;
-  @Input() selectMonth: number;
-  @Input() selectDay: number;
-  @Input() selectHour: number;
-  @Input() selectMin: number;
-  @Input() selectSec: number;
+  selectYear: number;
+  selectMonth: number;
+  selectDay: number;
+  selectHour: number;
+  selectMin: number;
+  selectSec: number;
+
+  /**
+ * date
+ * time
+ * datetime
+ */
+  @Input() type: string;
 
   @Input() maxYear: number;
   @Input() minYear: number;
@@ -53,12 +54,12 @@ export class AngularDatetimePickerComponent implements OnInit {
   @Input() maxSec: number;
   @Input() minSec: number;
 
-  @Input() yearIndex = 0;
-  @Input() monthIndex = 0;
-  @Input() dayIndex = 0;
-  @Input() hourIndex = 0;
-  @Input() minIndex = 0;
-  @Input() secIndex = 0;
+  yearIndex = 0;
+  monthIndex = 0;
+  dayIndex = 0;
+  hourIndex = 0;
+  minIndex = 0;
+  secIndex = 0;
 
   @Input()
   get value(): any {
@@ -140,23 +141,28 @@ export class AngularDatetimePickerComponent implements OnInit {
       default:
         break;
     }
+    console.log(this.yearIndex)
   }
-  selectedYear(data) {
+  selectedYear(data: number) {
+    setTimeout(e => {
+      console.log(this.selectYear);
+      console.log(this.yearIndex);
+    }, 1000);
     this.fullDay(this.selectDay, this.selectMonth, data);
   }
-  selectedMonth(data) {
+  selectedMonth(data: number) {
     this.fullDay(this.selectDay, data, this.selectYear);
   }
-  selectedDay(data) {
+  selectedDay(data: number) {
 
   }
-  selectedHour(data) {
+  selectedHour(data: number) {
 
   }
-  selectedMin(data) {
+  selectedMin(data: number) {
 
   }
-  selectedSec(data) {
+  selectedSec(data: number) {
 
   }
   /***
@@ -228,6 +234,7 @@ export class AngularDatetimePickerComponent implements OnInit {
     }
     this.secIndex = this.dataSec.indexOf(sec);
   }
+  // 重新生成一下index
   ok() {
     switch (this.type) {
       case 'date':
@@ -250,6 +257,7 @@ export class AngularDatetimePickerComponent implements OnInit {
       default:
         break;
     }
+
     // this.ngControl.value = this._value;
     this.showSelectView = false;
   }

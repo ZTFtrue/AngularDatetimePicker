@@ -13,3 +13,9 @@
   position: absolute;
   z-index: 2;
 }
+
+.operation-view{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
