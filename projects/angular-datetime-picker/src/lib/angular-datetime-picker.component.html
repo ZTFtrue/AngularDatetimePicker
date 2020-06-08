@@ -1,18 +1,22 @@
-<button (click)="showSelectView=!showSelectView"><input [(ngModel)]="_value" readonly="readonly"/></button>
+<button (click)="showSelectView=!showSelectView"><input [(ngModel)]="_value" readonly="readonly" /></button>
 <div class="date-parent-view" *ngIf="showSelectView">
   <div class="date-view">
-    <lib-app-child-select (eventSelected)="selectedYear($event)" [(value)]="selectYear" [data]="dataYear"
-      [(showIndex)]="yearIndex" *ngIf="type==='date'||type==='datetime'" name="年"></lib-app-child-select>
-    <lib-app-child-select (eventSelected)="selectedMonth($event)" [(value)]="selectMonth" [data]="dataMonth"
-      [(showIndex)]="monthIndex" *ngIf="type==='date'||type==='datetime'" name="月"></lib-app-child-select>
-    <lib-app-child-select (eventSelected)="selectedDay($event)" [(value)]="selectDay" [data]="dataDay"
-      [(showIndex)]="dayIndex" *ngIf="type==='date'||type==='datetime'" name="日"></lib-app-child-select>
-    <lib-app-child-select (eventSelected)="selectedHour($event)" [(value)]="selectHour" [data]="dataHour"
-      [(showIndex)]="hourIndex" *ngIf="type==='time'||type==='datetime'" name="时"></lib-app-child-select>
-    <lib-app-child-select (eventSelected)="selectedMin($event)" [(value)]="selectMin" [data]="dataMin"
-      [(showIndex)]="minIndex" *ngIf="type==='time'||type==='datetime'" name="分"></lib-app-child-select>
-    <lib-app-child-select (eventSelected)="selectedSec($event)" [(value)]="selectSec" [data]="dataSec"
-      [(showIndex)]="secIndex" *ngIf="type==='time'||type==='datetime'" name="秒"></lib-app-child-select>
+    <div style="display: flex;">
+      <lib-app-child-select (eventSelected)="selectedYear($event)" [(value)]="selectYear" [data]="dataYear"
+        [(showIndex)]="yearIndex" *ngIf="type==='date'||type==='datetime'" name="年"></lib-app-child-select>
+      <lib-app-child-select (eventSelected)="selectedMonth($event)" [(value)]="selectMonth" [data]="dataMonth"
+        [(showIndex)]="monthIndex" *ngIf="type==='date'||type==='datetime'" name="月"></lib-app-child-select>
+      <lib-app-child-select (eventSelected)="selectedDay($event)" [(value)]="selectDay" [data]="dataDay"
+        [(showIndex)]="dayIndex" *ngIf="type==='date'||type==='datetime'" name="日"></lib-app-child-select>
+    </div>
+    <div style="display: flex;">
+      <lib-app-child-select (eventSelected)="selectedHour($event)" [(value)]="selectHour" [data]="dataHour"
+        [(showIndex)]="hourIndex" *ngIf="type==='time'||type==='datetime'" name="时"></lib-app-child-select>
+      <lib-app-child-select (eventSelected)="selectedMin($event)" [(value)]="selectMin" [data]="dataMin"
+        [(showIndex)]="minIndex" *ngIf="type==='time'||type==='datetime'" name="分"></lib-app-child-select>
+      <lib-app-child-select (eventSelected)="selectedSec($event)" [(value)]="selectSec" [data]="dataSec"
+        [(showIndex)]="secIndex" *ngIf="type==='time'||type==='datetime'" name="秒"></lib-app-child-select>
+    </div>
   </div>
   <div class="operation-view">
     <button (click)="ok()">Ok</button>

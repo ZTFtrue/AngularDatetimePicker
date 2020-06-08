@@ -1,4 +1,4 @@
-.date-view{
+.date-view {
   display: flex;
   border: solid 1px gray;
   flex-wrap: wrap;
@@ -6,16 +6,32 @@
   align-items: flex-start;
   align-content: flex-start;
   justify-items: flex-start;
-  width: fit-content;
+  width: auto;
 }
 
-.date-parent-view{
+.date-parent-view {
   position: absolute;
   z-index: 2;
 }
 
-.operation-view{
+.operation-view {
+  padding: 0 10px 0px 10px;
+  border: solid 1px gray;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: white;
+}
+
+/* 最小宽度是 */
+@media (min-width: 400px) {
+  .date-view {
+    width: 384px;
+  }
+}
+
+@media (max-width: 400px) {
+  .date-view {
+    width: 192px;
+  }
 }
