@@ -4,15 +4,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## how to use
 
-```
+install:
 
-
+```sh
+npm i @ztftrue/angular-datetime-picker
 ```
 
 in your ```.module.ts```
 
 ```ts
-import { AngularDatetimePickerModule } from 'angular-datetime-picker';
+import { AngularDatetimePickerModule } from '@ztftrue/angular-datetime-picker';
 
  imports: [
     AngularDatetimePickerModule
