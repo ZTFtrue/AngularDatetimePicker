@@ -1,5 +1,5 @@
 {
-  "name": "angular-datetime-picker",
+  "name": "@ztftrue/angular-datetime-picker",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
