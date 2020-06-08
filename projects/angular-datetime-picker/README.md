@@ -1,24 +1,35 @@
 # AngularDatetimePicker
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
-## Code scaffolding
+## how to use
 
-Run `ng generate component component-name --project angular-datetime-picker` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project angular-datetime-picker`.
-> Note: Don't forget to add `--project angular-datetime-picker` or else it will be added to the default project in your `angular.json` file. 
+install:
 
-## Build
+```sh
+npm i @ztftrue/angular-datetime-picker
+```
 
-Run `ng build angular-datetime-picker` to build the project. The build artifacts will be stored in the `dist/` directory.
+in your ```.module.ts```
 
-## Publishing
+```ts
+import { AngularDatetimePickerModule } from 'angular-datetime-picker';
 
-After building your library with `ng build angular-datetime-picker`, go to the dist folder `cd dist/angular-datetime-picker` and run `npm publish`.
+ imports: [
+    AngularDatetimePickerModule
+  ]
+```
 
-## Running unit tests
+in the html
 
-Run `ng test angular-datetime-picker` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```html
+    <lib-angular-datetime-picker [(value)]="timeValue" ></lib-angular-datetime-picker>
+```
 
-## Further help
+The timeValue is default and output time.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Input type control show view. when type is date show date selector,time show time selector . datetime show date and time selector.
+
+[demon](https://ztftrue.github.io/xmind-frontend-work/)
+
+[github](https://github.com/ZTFtrue/AngularDatetimePicker)
