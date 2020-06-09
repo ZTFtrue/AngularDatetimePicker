@@ -30,15 +30,12 @@ The timeValue is default and output time.
 
 Input type control show view. when type is date show date selector,time show time selector . datetime show date and time selector.
 
-
 ## Show on browers
 
 Run ```npm run start``` , and open [localhost:4200/](http://localhost:4200/)
-
 
 ## Build
 
 ```sh
 ng build @ztftrue/angular-datetime-picker --prod
 ```
-
