@@ -33,3 +33,9 @@ Input type control show view. when type is date show date selector,time show tim
 [demon](https://ztftrue.github.io/xmind-frontend-work/)
 
 [github](https://github.com/ZTFtrue/AngularDatetimePicker)
+
+## Build
+
+```sh
+ng build @ztftrue/angular-datetime-picker --prod
+```
